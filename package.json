@@ -1,0 +1,12 @@
+{
+  "description":"test by wbye",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "devDependencies": {
+    "browser-sync":"~2.4.0",
+    "gulp": "~3.8.11"
+  },
+  "readme": "ERROR: No README data found!"
+}

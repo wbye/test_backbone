@@ -194,6 +194,21 @@ book.sync("create",book, {
 		console.log("sync complete");
 		console.log(arguments);
 	}
-}).error(function(){
-	alert("error");
+})
+// .error(function(){
+// 	alert("error");
+// });
+
+book.fetch({
+	url:'xxx',
+	error:function(){
+
+	}
+});
+
+book.fetch({
+	url:'xxx',
+	error:function(){
+
+	}
 });

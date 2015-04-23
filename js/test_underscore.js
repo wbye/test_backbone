@@ -38,3 +38,32 @@ log(_.omit(test,"k1","k2"));
 log(_.omit(test,function(value,key,object){
 	return _.isNumber(value);
 }));
+
+//collections 集合
+//each
+//map
+//reduce
+//reduceRight
+//find
+//filter
+//where
+//findWhere
+//reject
+//every
+//some
+//contains
+//invoke
+//pluck
+//max
+//min
+//sortBy
+//groupBy
+//indexBy
+//countBy
+//shuffle
+//sample
+//toArray
+//size
+//partition
+//
+//

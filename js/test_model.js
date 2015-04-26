@@ -212,3 +212,9 @@ book.fetch({
 
 	}
 });
+book.save({
+	url:"xxxx",
+	error:function(){
+		console.log(arguments);
+	}
+})

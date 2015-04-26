@@ -198,7 +198,9 @@ book.sync("create",book, {
 // .error(function(){
 // 	alert("error");
 // });
-
+book.bind("request",function(){
+	console.log("request  ...");
+});
 book.fetch({
 	url:'xxx',
 	error:function(){
@@ -212,9 +214,56 @@ book.fetch({
 
 	}
 });
+
 book.save({
 	url:"xxxx",
 	error:function(){
 		console.log(arguments);
 	}
-})
+});
+
+
+//backone Model属性直接代理了 keys, values ,pairs ,invert ,pick ,omit方法  （arguments,unshift）
+//book.keys  book.values  
+//
+console.clear();
+var Chapter=Backbone.Model.extend({
+	validate:function(attrs,options){
+		if(attrs.end<attrs.start){
+			return "can't end before it starts";
+		}
+	},	
+	//restful借口的路径
+	urlRoot:'http://www.baidu.com/test/chapter'
+});
+var chapter_one=new Chapter({
+	title:"novel chapter ",
+	id:'chapter_one'
+});
+
+chapter_one.set({
+	start:15,
+	end:10
+});
+//加入事件队列
+chapter_one.on("invalid",function(model,error){
+	console.log(this==model);
+	console.log(arguments);
+});
+
+if(!chapter_one.isValid()){
+	console.log(chapter_one.get("title")+" "+chapter_one.validationError);
+}
+console.log(chapter_one.url(),chapter_one.urlRoot);
+chapter_one.fetch({
+	// url:"xxx",
+	error:function  () {
+	}
+});
+var User=Backbone.Model.extend({
+
+	urlRoot:function(){
+		var middle_part=this.get("middle_part");
+		return 'http://www.baidu.com/test/chapter'+"/"+middle_part;
+	}
+});
